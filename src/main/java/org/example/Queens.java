@@ -2,25 +2,25 @@ package org.example;
 
 public class Queens {
 
-    private final int n;
+    private final int numQueens;
 
 
-    public Queens(int n) {
-        this.n = n;
+    public Queens(int numQueens) {
+        this.numQueens = numQueens;
     }
 
 
     public static void main(String[] args) {
-        new Queens(8).enumerate();
+        new Queens(8).execute();
     }
 
 
-    private void enumerate() {
-        enumerate(new int[n], 0);
+    private void execute() {
+        doExecute(new int[numQueens], 0);
     }
 
 
-    private void enumerate(int[] q, int k) {
+    private void doExecute(int[] q, int k) {
         int n = q.length;
         if (k == n) {
             print(q);
@@ -28,7 +28,7 @@ public class Queens {
             for (int i = 0; i < n; i++) {
                 q[k] = i;
                 if (isLegal(q, k)) {
-                    enumerate(q, k + 1);
+                    doExecute(q, k + 1);
                 }
             }
         }

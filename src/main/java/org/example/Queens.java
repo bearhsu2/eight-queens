@@ -3,11 +3,13 @@ package org.example;
 public class Queens {
 
     private final int numQueens;
+    public int[] arrangement;
     private int solutions;
 
 
     public Queens(int numQueens) {
         this.numQueens = numQueens;
+        arrangement = new int[numQueens];
     }
 
 
@@ -24,20 +26,20 @@ public class Queens {
 
 
     public void execute() {
-        doExecute(new int[numQueens], 0);
+        doExecute(0);
     }
 
 
-    private void doExecute(int[] q, int k) {
-        int n = q.length;
+    private void doExecute(int k) {
+        int n = arrangement.length;
         if (k == n) {
             solutions++;
-            print(q);
+            print(arrangement);
         } else {
             for (int i = 0; i < n; i++) {
-                q[k] = i;
-                if (isLegal(q, k)) {
-                    doExecute(q, k + 1);
+                arrangement[k] = i;
+                if (isLegal(arrangement, k)) {
+                    doExecute(k + 1);
                 }
             }
         }

@@ -2,7 +2,7 @@ package org.example;
 
 public class Queens {
 
-    private int n;
+    private final int n;
 
 
     public Queens(int n) {
@@ -17,20 +17,6 @@ public class Queens {
 
     private void enumerate() {
         enumerate(new int[n], 0);
-    }
-
-
-    private void print(int[] q) {
-        int n = q.length;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-
-                if (q[i] == j) System.out.print("Q ");
-                else System.out.print("* ");
-            }
-            System.out.println();
-        }
-        System.out.println();
     }
 
 
@@ -57,5 +43,21 @@ public class Queens {
         }
         return true;
     }
+
+
+    private void print(int[] q) {
+        int n = q.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+                if (q[i] == j) System.out.print("Q ");
+                else System.out.print("* ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+
 }
 

@@ -2,14 +2,25 @@ package org.example;
 
 public class Queens {
 
+    private int n;
 
-    public static void main(String[] args) {
-        int[] answer = new int[8];
-        new Queens().enumerate(answer, 0);
+
+    public Queens(int n) {
+        this.n = n;
     }
 
 
-    public void print(int[] q) {
+    public static void main(String[] args) {
+        new Queens(8).enumerate();
+    }
+
+
+    private void enumerate() {
+        enumerate(new int[n], 0);
+    }
+
+
+    private void print(int[] q) {
         int n = q.length;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -23,19 +34,22 @@ public class Queens {
     }
 
 
-    public void enumerate(int[] q, int k) {
+    private void enumerate(int[] q, int k) {
         int n = q.length;
-        if (k == n) print(q);
-        else {
+        if (k == n) {
+            print(q);
+        } else {
             for (int i = 0; i < n; i++) {
                 q[k] = i;
-                if (new Queens().isLegal(q, k)) new Queens().enumerate(q, k + 1);
+                if (isLegal(q, k)) {
+                    enumerate(q, k + 1);
+                }
             }
         }
     }
 
 
-    public boolean isLegal(int[] q, int n) {
+    private boolean isLegal(int[] q, int n) {
         for (int i = 0; i < n; i++) {
             if (q[i] == q[n]) return false;   // same column
             if ((q[i] - q[n]) == (n - i)) return false;   // same major diagonal

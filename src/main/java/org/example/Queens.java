@@ -35,11 +35,11 @@ public class Queens {
     }
 
 
-    private boolean isLegal(int[] q, int n) {
-        for (int i = 0; i < n; i++) {
-            if (q[i] == q[n]) return false;   // same column
-            if ((q[i] - q[n]) == (n - i)) return false;   // same major diagonal
-            if ((q[n] - q[i]) == (n - i)) return false;   // same minor diagonal
+    private boolean isLegal(int[] q, int k) {
+        for (int i = 0; i < k; i++) {
+            if (q[i] == q[k]) return false;   // |
+            if ((q[i] - q[k]) == (k - i)) return false;   // \
+            if ((q[k] - q[i]) == (k - i)) return false;   // /
         }
         return true;
     }

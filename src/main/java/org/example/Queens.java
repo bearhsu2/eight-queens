@@ -2,26 +2,24 @@ package org.example;
 
 public class Queens {
 
-    private final int numQueens;
     public int[] arrangement;
-    private int solutions;
+    private int numSolutions;
 
 
-    public Queens(int numQueens) {
-        this.numQueens = numQueens;
-        arrangement = new int[numQueens];
+    public Queens(int n) {
+        arrangement = new int[n];
     }
 
 
     public static void main(String[] args) {
         Queens queens = new Queens(8);
         queens.execute();
-        System.out.println(queens.getSolutions());
+        System.out.println(queens.getNumSolutions());
     }
 
 
-    public int getSolutions() {
-        return solutions;
+    public int getNumSolutions() {
+        return numSolutions;
     }
 
 
@@ -33,7 +31,7 @@ public class Queens {
     private void doExecute(int k) {
         int n = arrangement.length;
         if (k == n) {
-            solutions++;
+            numSolutions++;
             print(arrangement);
         } else {
             for (int i = 0; i < n; i++) {

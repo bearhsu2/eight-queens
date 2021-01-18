@@ -14,6 +14,6 @@ public class QueensTest {
 
         queens.execute();
 
-        Assert.assertEquals(92, queens.getSolutions());
+        Assert.assertEquals(92, queens.getNumSolutions());
     }
 }

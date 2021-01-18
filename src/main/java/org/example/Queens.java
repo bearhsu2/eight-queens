@@ -3,6 +3,7 @@ package org.example;
 public class Queens {
 
     public final int[] arrangement;
+    private final Checker checker = new Checker();
     private int numSolutions;
 
 
@@ -36,21 +37,11 @@ public class Queens {
         } else {
             for (int i = 0; i < n; i++) {
                 arrangement[k] = i;
-                if (isLegal(arrangement, k)) {
+                if (checker.isLegal(arrangement, k)) {
                     doExecute(k + 1);
                 }
             }
         }
-    }
-
-
-    private boolean isLegal(int[] q, int k) {
-        for (int i = 0; i < k; i++) {
-            if (q[i] == q[k]) return false;   // |
-            if ((q[i] - q[k]) == (k - i)) return false;   // \
-            if ((q[k] - q[i]) == (k - i)) return false;   // /
-        }
-        return true;
     }
 
 
@@ -64,7 +55,5 @@ public class Queens {
         }
         System.out.println();
     }
-
-
 }
 

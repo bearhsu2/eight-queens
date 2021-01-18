@@ -56,11 +56,9 @@ public class Queens {
 
     private void print(int[] q) {
         int n = q.length;
-        for (int i = 0; i < n; i++) {
+        for (int k : q) {
             for (int j = 0; j < n; j++) {
-
-                if (q[i] == j) System.out.print("Q ");
-                else System.out.print("* ");
+                System.out.print(k == j ? "Q " : "* ");
             }
             System.out.println();
         }

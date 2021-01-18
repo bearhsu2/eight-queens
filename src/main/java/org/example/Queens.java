@@ -58,7 +58,7 @@ public class Queens {
         int n = q.length;
         for (int k : q) {
             for (int j = 0; j < n; j++) {
-                System.out.print(k == j ? "Q " : "* ");
+                System.out.print(k == j ? "Q" : ".");
             }
             System.out.println();
         }

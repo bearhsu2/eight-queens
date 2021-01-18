@@ -3,6 +3,7 @@ package org.example;
 public class Queens {
 
     private final int numQueens;
+    private int solutions;
 
 
     public Queens(int numQueens) {
@@ -11,11 +12,18 @@ public class Queens {
 
 
     public static void main(String[] args) {
-        new Queens(8).execute();
+        Queens queens = new Queens(8);
+        queens.execute();
+        System.out.println(queens.getSolutions());
     }
 
 
-    private void execute() {
+    public int getSolutions() {
+        return solutions;
+    }
+
+
+    public void execute() {
         doExecute(new int[numQueens], 0);
     }
 
@@ -23,6 +31,7 @@ public class Queens {
     private void doExecute(int[] q, int k) {
         int n = q.length;
         if (k == n) {
+            solutions++;
             print(q);
         } else {
             for (int i = 0; i < n; i++) {

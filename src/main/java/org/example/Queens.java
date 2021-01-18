@@ -2,7 +2,7 @@ package org.example;
 
 public class Queens {
 
-    public int[] arrangement;
+    public final int[] arrangement;
     private int numSolutions;
 
 
